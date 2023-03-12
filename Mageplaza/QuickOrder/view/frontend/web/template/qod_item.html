@@ -1,0 +1,129 @@
+<!--
+/**
+* Mageplaza
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Mageplaza.com license that is
+* available through the world-wide-web at this URL:
+* https://www.mageplaza.com/LICENSE.txt
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this extension to newer
+* version in the future.
+*
+* @category    Mageplaza
+* @package     Mageplaza_QuickOrder
+* @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+* @license     https://www.mageplaza.com/LICENSE.txt
+*/
+-->
+<div class="render-wraper">
+    <ul class="qod_list_item" data-bind="foreach:getItems()">
+        <li class="qod_item" data-bind="attr: { 'pid': item_id }">
+            <div class="qod-product-item">
+                <div class="item-product">
+                    <div class="image-product"><img data-bind="attr: { 'src': imageUrl }" alt="Product Image"/></div>
+                    <div class="name-option">
+                        <a data-bind="attr: { 'href': product_url}" target="_blank"><p class="product-name"
+                                                                                       data-bind="text:name"></p></a>
+                        <!-- ko if: $parent.checkoutofStock(outofstock)-->
+                        <p class="item-outstock" data-bind="i18n: 'Item out of stock can not add to cart'"></p>
+                        <!-- /ko -->
+                        <!-- ko if: $parent.checktypeId(type_id)-->
+                        <div class="type-item">
+                            <div class="product-option">
+                                <!--ko foreach: { data: options_select_value, as: 'options'}-->
+                                <!--<p class="op-select" data-bind="foreach: options">-->
+                                <div data-bind="foreach: Object.keys($data)">
+                                    <div class="options">
+                                        <div class="mp-label">
+                                            <strong data-bind="text: $data "></strong>
+                                        </div>
+                                        <select data-bind="options: $parent[$data],
+                                        event: {change: function(data, event){$parents[2].changeOptions($parents[1].item_id, data, event)}}"></select>
+                                    </div>
+                                </div>
+                                <!--</p>-->
+                                <!-- /ko -->
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                        <!-- ko template: $parent.getCustomOptionTemplate() --><!-- /ko -->
+                    </div>
+                    <!-- ko template: $parent.getProductTemplate() --><!-- /ko -->
+                </div>
+                <div class="item-sku" data-bind="text:sku"></div>
+                <div id="item-qty">
+                    <div id="action-qty"
+                         data-bind="style: { display: !$parent.checkGroup(type_id)  ? 'block' : 'none' }">
+                        <span id="sub-qty" data-bind="click: $parent.minusQty.bind($data,item_id)">-</span>
+                        <span id="display-qty">
+                            <!-- ko if: $parent.checkBundle(type_id) -->
+                            <input id="ordered-Qty" type="text"
+                                   data-bind="attr: { 'value': qty }, event: {change: function(data, event){$parents[0].changeBundleQty(item_id, event)}}">
+                            <!-- /ko -->
+                            <!-- ko ifnot: $parent.checkBundle(type_id) -->
+                            <input id="orderedQty" type="text"
+                                   data-bind="attr: { 'value': qty }, event: {change: function(data, event){$parents[0].changeQty(item_id, event)}}">
+                            <!-- /ko -->
+                        </span>
+                        <span id="plus-qty"
+                              data-bind="click: !$parent.checkBundle(type_id) ? $parent.plusQty.bind($data,item_id)  : $parent.plusBundleQty.bind($data,item_id)">+</span>
+                    </div>
+                    <!-- ko if: $parent.checkTypeShowQty(type_id)-->
+                    <p class="item-instock"><span>Qty in stock: </span><span data-bind="text: qtystock"></span></p>
+                    <!-- /ko -->
+                    <!-- ko if: $parent.checkShowSalableQty(type_id,qty_salable)-->
+                    <p class="item-insalablestock"><span>Salable Quantity: </span><span data-bind="text: qty_salable"></span></p>
+                    <!-- /ko -->
+                </div>
+                <!--<div class="item-subtotal" data-bind="text:$parent.getFormattedPrice(total)"></div>-->
+                <div class="item-subtotal">
+                    <p data-bind="text: $parent.getFormattedPrice(total)"></p>
+                    <!-- ko if: $parent.checkTierPriceGroup(tier_price)-->
+                    <!-- ko if: $parent.checkBundle(type_id) -->
+                    <p class="item-instock" data-bind="foreach:tier_price">
+                        <span>Buy </span>
+                        <span data-bind="text:price_qty"></span>
+                        <span> with </span>
+                        <span data-bind="text: $parents[1].getFormattedQty(price)+'%'"></span>
+                        <span> discount each </span>
+                        <!--<span>%</span>-->
+                        <br>
+                    </p>
+                    <!-- /ko -->
+                    <!-- ko ifnot: $parent.checkBundle(type_id) -->
+                    <p class="item-instock" data-bind="foreach:tier_price">
+                        <span>Buy </span>
+                        <span data-bind="text:price_qty"></span>
+                        <span> for </span>
+                        <span data-bind="text: $parents[1].getFormattedPrice(price)"></span><br>
+                    </p>
+                    <!-- /ko -->
+                    <!-- /ko -->
+                </div>
+                <div id="item-action">
+                    <!-- ko if: $parent.checktypeId(type_id)-->
+                    <span id="duplicate-item" data-bind="click: $parent.doubleItem.bind($data,item_id)">+</span>
+                    <!-- /ko -->
+                    <span id="delete-item" data-bind="click: $parent.removeItem.bind($data,item_id)">x</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="addcart-checkout-list">
+    <span id="lazyload"><img data-bind="attr: { 'src': window.qodConfig.lazyload}" alt="lazyload"/></span>
+    <span id="qty-message" data-bind="i18n: 'This item does not have enough quantity'"></span>
+    <span id="addcart-message" data-bind="i18n: 'Cannot add to cart as quick order list is empty'"></span>
+    <span id="bundle-message" data-bind="i18n: 'Please select all necessary options'"></span>
+    <span id="product-message"
+          data-bind="i18n: 'You have added too many products to the cart at a time. Please reduce products'"></span>
+    <span id="error-message" data-bind="i18n: 'You entered the wrong data'"></span>
+    <span id="error-customoption" data-bind="i18n: 'The string you entered exceeds the number of characters allowed'"></span>
+    <span id="checkout-message" data-bind="i18n: 'You have no items in your shopping cart'"></span>
+    <span><button id="add-cart-list" data-bind="click: addCartAction, text: $t('Add to cart')"></button></span>
+    <span><button id="checkout-list" data-bind="click: checkoutProcessAction, text: $t('Checkout')"></button></span>
+</div>

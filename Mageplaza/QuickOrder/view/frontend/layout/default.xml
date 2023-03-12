@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_QuickOrder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="top.links">
+            <block class="Mageplaza\QuickOrder\Block\Html\Showlink" name="quickorder.after.customer.welcome" before="-">
+                <arguments>
+                    <argument name="type" xsi:type="string">position_customer_welcome</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="header.links">
+            <block class="Mageplaza\QuickOrder\Block\Html\Showlink" name="quickorder.top.links" before="-">
+                <arguments>
+                    <argument name="type" xsi:type="string">top_menu</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="header-wrapper">
+            <block class="Mageplaza\QuickOrder\Block\Html\Showlink" name="quickorder.top.search" before="top.search">
+                <arguments>
+                    <argument name="type" xsi:type="string">next_searchbox</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="footer_links">
+            <block class="Mageplaza\QuickOrder\Block\Html\Showlink" name="quickorder.footer.link">
+                <arguments>
+                    <argument name="type" xsi:type="string">footer_link</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

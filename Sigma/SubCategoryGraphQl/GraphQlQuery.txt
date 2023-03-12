@@ -1,0 +1,32 @@
+query  {
+  SubCategory (id: 42) {
+      items{
+        id
+        name
+        url_key
+        thumbnail_image
+      }   
+  }
+}
+
+
+
+query GetCategoryList($id: Int!) {
+        category(id: $id) {
+            id
+            uid
+            children {
+                id
+                uid
+                name
+                children_count
+                image
+                thumbnail_image
+            }
+        }
+    }
+
+GRAPHQL VARIABLES:
+{
+    "id":42
+}

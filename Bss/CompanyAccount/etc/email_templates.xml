@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_CompanyAccount
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2020 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="bss_company_account_email_ca_approval" label="BSS CA - Company Account Approval"
+              file="company_account_approval.html" type="html" module="Bss_CompanyAccount"
+              area="frontend"/>
+    <template id="bss_company_account_email_ca_remove" label="BSS CA - Company Account Remove"
+              file="company_account_remove.html" type="html" module="Bss_CompanyAccount"
+              area="frontend"/>
+    <template id="bss_company_account_email_subuser_remove" label="BSS CA - Remove Sub-user from Company Account"
+              file="subuser_remove.html" type="html" module="Bss_CompanyAccount"
+              area="frontend"/>
+    <template id="bss_company_account_email_subuser_welcome" label="BSS CA - Welcome Sub-user to Company Account"
+              file="subuser_joined.html" type="html" module="Bss_CompanyAccount"
+              area="frontend"/>
+    <template id="bss_company_account_email_subuser_reset_password" label="BSS CA - Reset Sub-user Password"
+              file="password_new.html" type="html" module="Bss_CompanyAccount"
+              area="frontend"/>
+</config>

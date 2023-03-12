@@ -1,0 +1,10 @@
+type Query {
+    EmailAvailable( emailId: String! @doc(description: "Get Email Response")
+    ): IsEmailAvailableOutput @resolver(class: "Sigma\\IsEmailAvailable\\Model\\Resolver\\IsEmailAvailable")  
+    @doc(description: "Email Response")
+}
+
+type IsEmailAvailableOutput {
+   message: String @doc(description: "Message")
+   status : String @doc(description: "Status")
+}

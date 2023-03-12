@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="WebGate_SMSAShipping::SMSAShippingLogs" sortOrder="10" title="SMSA Shipping Logs">
+                    <resource id="WebGate_SMSAShipping::SMSAShippingLogs_delete" sortOrder="20" title="Delete SMSA Shipping Logs"/>
+                    <resource id="WebGate_SMSAShipping::SMSAShippingLogs_view" sortOrder="40" title="View SMSA Shipping Logs"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,60 @@
+<?php
+    /**
+     * @var $this \WebGate\SMSAShipping\Block\Adminhtml\AddBtnMyOrder
+     */
+?>
+<?php
+    if($this->isAwbMethod())
+    {
+        ?>
+      <br><br><br>
+      <section class="admin__page-section">
+        <div class="admin__page-section-title">
+          <span class="title">Awb Method</span>
+        </div>
+        <div class="admin__page-section-content">
+          <div class="admin__page-section-item-content">
+            <div class="admin__page-section-item-content">
+              <strong>Status </strong><span><?= $this->getAwdStatus() ?></span>
+            </div>
+
+            <div class="admin__page-section-item-content">
+              <strong>Number </strong><span><?= $this->getAwdNumber() ?></span>
+            </div>
+
+            <br><br>
+            <div class="admin__page-section-item-content" id='getTracking'></div>
+
+            <br>
+            <a href='<?= $this->getUrl('webgate_smsashipping/awd/status' , [
+                'order_id' => $this->getOrderId() ,
+            ]) ?>' class="action-default scalable action-secondary">
+              <span>update status</span>
+            </a>
+
+            <button onclick='httpGetAsync("<?= $this->getUrl('webgate_smsashipping/awd/tracking' , [
+                'order_id' => $this->getOrderId() ,
+            ]) ?>")' class="action-default scalable action-secondary">
+              <span>get Tracking</span>
+            </button>
+
+            <a href='<?= $this->getUrl('webgate_smsashipping/awd/Pdf' , [
+                'order_id' => $this->getOrderId() ,
+            ]) ?>' class="action-default scalable action-secondary">
+              <span>Print</span>
+            </a>
+
+            <br>
+            <br>
+
+            <a target='_blank' href='<?= $this->getUrl('webgate_smsashipping/awd/ShowPdf' , [
+                'order_id' => $this->getOrderId() ,
+            ]) ?>' class="action-default scalable action-secondary">
+              <span>Show Print Pdf</span>
+            </a>
+
+          </div>
+        </div>
+      </section>
+    
+    <?php } ?>

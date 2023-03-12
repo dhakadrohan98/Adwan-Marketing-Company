@@ -1,0 +1,20 @@
+
+type Query {
+    FeaturedProducts:
+    ProductOutput @resolver(class: "Sigma\\FeaturedProductsGraphQl\\Model\\Resolver\\ProductsResolver") 
+    @doc(description: "Featured Products information.")
+}
+
+type ProductOutput {
+    items: [Product]! @doc(description: "An array of Featured Products.")      
+}
+type Product {
+    id: Int @doc(description: "Get Product Id")
+    name: String @doc(description: "Get Product name")
+    image: String @doc(description: "Get Product image")
+    sku: String @doc(description: "Get Product sku")
+    qty: Int @doc(description: "Get Product Qty")
+    price: Float @doc(description: "Get Product price")
+    special_price: Float @doc(description: "Get Product special price")
+}
+

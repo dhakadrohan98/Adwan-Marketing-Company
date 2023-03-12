@@ -1,0 +1,14 @@
+query IsEmailAvailable($email: String!) {
+  EmailAvailable (emailId: $email) 
+    {
+       message
+       status
+    }
+}
+
+
+#Variable
+
+{
+    "email" : "roni_cost@example.com"
+}

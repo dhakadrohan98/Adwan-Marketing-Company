@@ -1,0 +1,39 @@
+type Query {
+    topManufacturers: ManufacturersOutput
+    @resolver(class: "Emizentech\\ShopByBrand\\Model\\Resolver\\TopManufacturers") 
+    @doc(description: "Top Manufacturers Data.")
+}
+
+type ManufacturersOutput {
+    items: [Manufacturers!]! @doc(description: "An array of manufacturers.")    
+}
+type Manufacturers {
+    id: Int
+    name: String
+    url_key: String
+    logo: String
+}
+
+type Query {
+    brandInfo( id: Int! @doc(description: "Specify the id of the product.")
+    ): BrandInfoOutput@resolver(class: "Emizentech\\ShopByBrand\\Model\\Resolver\\Brand") 
+    @doc(description: "Brand Data.")
+}
+
+type BrandInfoOutput {
+    items: [Brand!]! @doc(description: "An array of Brand.")    
+}
+type Brand {
+    id: Int
+    name: String
+    logo: String
+    description: String
+    productdetail: [Value!]! @doc(description: "An array of manufacturers.")
+}
+type Value {
+    id: Int
+    name : String
+    sku  : String
+    image: String
+    price: String
+}

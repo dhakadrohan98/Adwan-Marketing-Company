@@ -1,0 +1,16 @@
+
+type StoreConfig {
+    whatsapp_general_enable : Int  @doc(description: "Whatsapp Chat Enable")
+    whatsapp_general_number : String  @doc(description: "Whatsapp Number")
+    whatsapp_general_message : String  @doc(description: "Whatsapp Message")
+    live_chat_general_enable : Int  @doc(description: "Live Chat Enable")
+    live_chat_general_widget_script : String  @doc(description: "Live Chat Script")
+    web_cookie_cookie_lifetime : String  @doc(description: "Cookie Lifetime")
+    persistent_options_lifetime : String  @doc(description: "Persistence Lifetime")
+    product_details_banner_image : String  @doc(description: "Product Details Banner Image")
+    product_details_banner_image_ar : String  @doc(description: "Product Details Banner Image for AR store view")
+    product_details_banner_url_key : String  @doc(description: "Product Details Banner URL Key")
+    zip_code_checker_general_enable : Int  @doc(description: "Zipcode Enable")
+    zip_code_checker_general_zipcodes : String  @doc(description: "Zipcode Numbers")
+    sms_country_code_general_phone_code : String  @doc(description: "Phone Numbers Country Code")
+}

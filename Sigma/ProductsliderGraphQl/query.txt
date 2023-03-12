@@ -1,0 +1,13 @@
+query {
+Productsliders {
+items{
+id
+name
+image
+sku
+price
+special_price
+}
+}
+}
+

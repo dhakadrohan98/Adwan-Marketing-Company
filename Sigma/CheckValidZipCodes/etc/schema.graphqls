@@ -1,0 +1,10 @@
+type Query {
+    CheckValidZipCode( zipcode: String! @doc(description: "Get Zip Code Response")
+    ): CheckValidZipCodeOutput @resolver(class: "Sigma\\CheckValidZipCodes\\Model\\Resolver\\CheckZipCodes")  
+    @doc(description: "Zip Code Response")
+}
+
+type CheckValidZipCodeOutput {
+   message: String @doc(description: "Message")
+   status : String @doc(description: "Status")
+}

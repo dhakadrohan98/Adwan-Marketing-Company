@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+        <arguments>
+            <argument name="extendedConfigData">
+                <item name="payment_noonpg_status" xsi:type="string">payment/noonpg/active</item>
+                <item name="payment_noonpg_title" xsi:type="string">payment/noonpg/title</item>
+                <item name="payment_noonpg_sandbox" xsi:type="string">payment/noonpg/sandbox</item>
+                <item name="payment_noonpg_business_identifier" xsi:type="string">payment/noonpg/businessidentifier</item>
+                <item name="payment_noonpg_app_identifier" xsi:type="string">payment/noonpg/appidentifier</item>
+                <item name="payment_noonpg_authkey" xsi:type="string">payment/noonpg/authkey</item>
+                <item name="payment_noonpg_payment_action" xsi:type="string">payment/noonpg/paymentaction</item>
+                <item name="payment_noonpg_operating_mode" xsi:type="string">payment/noonpg/operatingmode</item>
+                <item name="payment_noonpg_gateway_url" xsi:type="string">payment/noonpg/gatewayurl</item>
+                <item name="payment_noonpg_order_route" xsi:type="string">payment/noonpg/orderroute</item>
+                <item name="payment_noonpg_language" xsi:type="string">payment/noonpg/language</item>
+                <item name="payment_noonpg_style_profile" xsi:type="string">payment/noonpg/styleprofile</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

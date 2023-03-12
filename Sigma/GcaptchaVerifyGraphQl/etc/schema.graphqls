@@ -1,0 +1,10 @@
+# @codingStandardsIgnoreFile
+type Mutation {
+    VerifyGresponse( recaptcha_response: String! @doc(description: "Get google recaptcha response")
+    ): GresponseOutput @resolver(class: "Sigma\\GcaptchaVerifyGraphQl\\Model\\Resolver\\VerifyCaptcha")  
+    @doc(description: "google recaptcha response")
+}
+
+type GresponseOutput {
+   message: String @doc(description: "Message")
+}

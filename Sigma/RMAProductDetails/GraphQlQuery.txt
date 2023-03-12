@@ -1,0 +1,88 @@
+Get Customers Orders
+{
+  customer {
+      orders(filter: {status:{eq: "complete"}}){
+          items{
+              order_number
+              increment_id
+              order_date
+              grand_total
+            status
+          }
+      }
+
+  }
+}
+Get Particular order details
+{
+  customer {
+      orders(filter: {number:{eq: "000000057"}}){
+          items{
+              order_number
+              increment_id
+              order_date
+              grand_total
+            status
+            shipping_address{
+                firstname
+                lastname
+                region
+                country_code
+                street
+                telephone
+                city
+                postcode
+            }
+            items{
+                id
+                product_name
+                product_sku
+                product_url_key
+                product_type
+                status
+                quantity_ordered
+                quantity_shipped
+            }
+          }
+      }
+    
+  }
+}
+
+mutation($order_id:String!,$order_item_id:Int!,$qty_requested:Int!,$product_sku: String!,$condition_id:Int!,$reason_id:Int!,$resolution_id:Int!) {
+  createRma(input: {
+    rma_orders: {
+      order_id: $order_id
+      store_id: 1
+      type: "regular"
+      items: [
+      {
+      
+        order_item_id: $order_item_id
+        qty_requested: $qty_requested
+        product_sku: $product_sku
+        condition_id: $condition_id
+        reason_id: $reason_id
+        resolution_id: $resolution_id
+      
+      }
+    ]
+    }
+  }) {
+    rma {
+      increment_id
+    }
+  }
+}
+
+
+
+{
+        "order_id":"000000062",
+        "order_item_id":147,
+        "qty_requested":1,
+        "product_sku":"PM123",
+        "condition_id": 1,
+        "reason_id":1,
+        "resolution_id":1
+}

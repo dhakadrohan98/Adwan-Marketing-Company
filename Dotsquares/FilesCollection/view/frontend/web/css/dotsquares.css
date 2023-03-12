@@ -1,0 +1,77 @@
+.downloadfile {
+  float: left;
+  min-height: 190px;
+  padding: 10px;
+  width: 150px;
+}
+
+.upimag { 
+  color: #fff;
+  width: 100%;
+}
+
+.upimag span {
+  color: #000;
+  font-size: 50px;
+  height: 150px;
+  width: 100%;
+
+}
+
+.upimag span.filimag-packg {
+  background: rgba(0, 0, 0, 0) url("../images/packing.png") repeat scroll 0 0 / cover ;
+  display: inline-block;
+}
+
+.upimag span.filimag-img {
+  background: rgba(0, 0, 0, 0) url("../images/packing.png") repeat scroll 0 0 / cover ;
+  display: inline-block;
+}
+
+.upimag span.filimag-video {
+  background: rgba(0, 0, 0, 0) url("../images/video.png") repeat scroll 0 0 / cover ;
+  display: inline-block;
+}
+
+.upimag span.filimag-zip {
+  background: rgba(0, 0, 0, 0) url("../images/zip.png") repeat scroll 0 0 / cover ;
+  display: inline-block;
+}
+
+.upimag span.filimag-csv {
+  background: rgba(0, 0, 0, 0) url("../images/csv.png") repeat scroll 0 0 / cover ;
+  display: inline-block;
+
+}
+
+.upimag span.filimag-doc {
+  background: rgba(0, 0, 0, 0) url("../images/doc.png") repeat scroll 0 0 / cover ;
+  display: inline-block;
+}
+
+.upimag span.filimag-pdf {
+  background: rgba(0, 0, 0, 0) url("../images/pdf.png") repeat scroll 0 0 / cover ;
+  display: inline-block;
+
+}
+
+.upimag span.filimag-xlsx {
+  background: rgba(0, 0, 0, 0) url("../images/xlsx.png") repeat scroll 0 0 / cover ;
+  display: inline-block;
+
+}
+
+
+.upname > a {
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-transform:capitalize;
+}
+
+.upname {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}

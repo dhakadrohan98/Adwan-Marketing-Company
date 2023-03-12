@@ -1,0 +1,77 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_QuickOrder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+// @codingStandardsIgnoreFile
+use Mageplaza\QuickOrder\Helper\Data;
+
+$storeId                 = null;
+$helperData              = $this->helper(Data::class);
+$headingBackgroundColor  = $helperData->getHeadingBackgroundColor($storeId);
+$headingTextColor        = $helperData->getHeadingTextColor($storeId);
+$headingBackgroundButton = $helperData->getHeadingBackgroundButton($storeId);
+
+?>
+<style type="text/css">
+    .headlist-title {
+        background-color: <?= $headingBackgroundColor ?>;
+        color: <?= $headingTextColor ?>;
+    }
+
+    .addmultiple-title h2 {
+        color: <?= $headingTextColor ?>;
+        background-color: <?= $headingBackgroundColor ?>;
+    }
+
+    #button-addcart-checkout button {
+        background-color: <?= $headingBackgroundButton ?>;
+    }
+
+    .addcart-checkout-list button {
+        background-color: <?= $headingBackgroundButton ?>;
+    }
+
+    .addmultiple-addlist button {
+        background-color: <?= $headingBackgroundButton ?>;
+    }
+
+    .quickod-wrapper button {
+        background-color: <?= $headingBackgroundButton ?>;
+    }
+
+    #item-qty #action-qty #sub-qty {
+        background-color: <?= $headingBackgroundButton ?>;
+    }
+
+    #item-qty #action-qty #plus-qty {
+        background-color: <?= $headingBackgroundButton ?>;
+    }
+
+    #duplicate-item {
+        background-color: <?= $headingBackgroundButton ?>;
+    }
+
+    #delete-item {
+        background-color: <?= $headingBackgroundButton ?>;
+    }
+
+    .product-add {
+        background-color: <?= $headingBackgroundButton ?>;
+    }
+</style>

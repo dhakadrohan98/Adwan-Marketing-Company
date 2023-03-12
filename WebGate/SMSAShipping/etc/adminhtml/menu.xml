@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="WebGate::top_level" module="WebGate_SMSAShipping" resource="Magento_Backend::content" sortOrder="99" title="Web Gate"/>
+        <add action="webgate_smsashipping/smsashippinglogs/index" id="WebGate_SMSAShipping::webgate_smsashipping_smsashippinglogs" module="WebGate_SMSAShipping"
+             parent="WebGate::top_level" resource="Magento_Backend::content" sortOrder="1" title="SMSA Shipping Logs"/>
+    </menu>
+</config>

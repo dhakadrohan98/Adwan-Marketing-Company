@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_QuickOrder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <quickorder>
+            <general>
+                <enabled>1</enabled>
+                <route_name>quick-order</route_name>
+                <page_title>Quick Order</page_title>
+                <message>You don't have right to access this page. Please contact us for further information</message>
+                <allow_customer_group>0,1</allow_customer_group>
+                <quickorder_label>Quick Order</quickorder_label>
+                <quickorder_button_label>Quick Order</quickorder_button_label>
+                <show_quickorder_button>next_searchbox</show_quickorder_button>
+            </general>
+            <search>
+                <minimum_character>2</minimum_character>
+                <limit_search_results>6</limit_search_results>
+                <display_product_image>1</display_product_image>
+            </search>
+            <design>
+                <heading_background_color>#0099e5</heading_background_color>
+                <heading_text_color>#ffffff</heading_text_color>
+                <heading_background_button>#0099e5</heading_background_button>
+                <button_quickorder_background_color>#0099e5</button_quickorder_background_color>
+            </design>
+        </quickorder>
+    </default>
+</config>
