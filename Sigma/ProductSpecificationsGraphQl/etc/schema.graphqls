@@ -1,0 +1,10 @@
+type Query {
+    attributeData (
+        sku: String @doc(description: "SKU of the product")
+    ): [Productdata] @resolver(class: "Sigma\\ProductSpecificationsGraphQl\\Model\\Resolver\\ProductSpecifications") @doc(description: "The product data query returns the product attributes")
+}
+
+type Productdata @doc(description: "all Attributes to show in Product Details Page") {
+    label : String  @doc(description: "Label of all atributes")
+    value : String  @doc(description: "Value of all atributes")
+}

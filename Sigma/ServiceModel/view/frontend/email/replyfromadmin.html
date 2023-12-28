@@ -1,0 +1,20 @@
+<!--@subject Admin Reply for the Service Request @-->
+
+{{template config_path="design/email/header_template"}}
+<h3>Hello{{var name}},</h3>
+<p> We have add a BOQ for the request that was made.</p>
+<p>Please check and let us know if you have any more difficulties.</p>
+<p> Please check the attached file.</p>
+<br/>
+<table>
+    <tr class="email-intro">
+        <td>{{trans "BOQ:"}}</td>
+        <td><a href={{var adminFileUrl}}>{{var adminFile}}</a></td>
+    </tr>
+ </table>
+ <div>
+    <p>{{trans "Thanks"}}</p>
+    <p>{{trans "Adwan Marketing"}}</p>
+</div>
+
+{{template config_path="design/email/footer_template"}}

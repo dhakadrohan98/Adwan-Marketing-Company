@@ -1,0 +1,6 @@
+query attributesData{
+    attributeData( sku : "2392213") {
+        label
+        value
+    }
+}

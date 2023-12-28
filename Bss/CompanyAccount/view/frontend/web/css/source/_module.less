@@ -1,0 +1,78 @@
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_CompanyAccount
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2020 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+& when (@media-common = true) {
+    @font-face {
+        font-family: 'material-icons';
+        font-style: normal;
+        font-weight: 400;
+        src: url("@{baseDir}Bss_CompanyAccount/fonticons/MaterialIcons-Regular.eot");
+        src: url("@{baseDir}Bss_CompanyAccount/fonticons/MaterialIcons-Regular.eot?#iefix") format('embedded-opentype'),
+            url("@{baseDir}Bss_CompanyAccount/fonticons/MaterialIcons-Regular.woff2") format('woff2'),
+            url("@{baseDir}Bss_CompanyAccount/fonticons/MaterialIcons-Regular.woff") format('woff'),
+            url("@{baseDir}Bss_CompanyAccount/fonticons/MaterialIcons-Regular.ttf") format('truetype');
+    }
+    div.bss-help-block {
+        font-size: 1.2rem;
+        margin-top: 5px;
+    }
+    .float-left {
+        float: left;
+    }
+    .padding-top-bottom-7 {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+    .padding-left-right-15 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .material-icons {
+        font-family: 'material-icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 1.4rem;  /* Preferred icon size */
+        display: inline-block;
+        text-transform: none;
+        vertical-align: middle;
+        text-align: center;
+        overflow: hidden;
+        speak: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+
+        /* Support for all WebKit browsers. */
+        -webkit-font-smoothing: antialiased;
+        /* Support for Safari and Chrome. */
+        text-rendering: optimizeLegibility;
+
+        /* Support for Firefox. */
+        -moz-osx-font-smoothing: grayscale;
+
+        /* Support for IE. */
+        font-feature-settings: 'liga';
+    }
+    .block-order-details-view {
+        &.sub-user {
+            margin-left:0;
+            .block-title {
+                padding-left:0;
+            }
+        }
+    }
+}

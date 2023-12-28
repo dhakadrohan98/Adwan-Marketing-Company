@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright  Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp/etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="frame-src">
+            <values>
+                <value id="livechatinc" type="host">*.livechatinc.com</value>
+                <value id="braintreegateway" type="host">assets.braintreegateway.com</value>
+                <value id="youtube" type="host">*.youtube.com</value>
+                <value id="youtu" type="host">*.youtu.be</value>
+                <value id="vimeo" type="host">*.vimeo.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

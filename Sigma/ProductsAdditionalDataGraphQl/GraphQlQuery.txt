@@ -1,0 +1,7 @@
+query attributeValues{
+    attributeValues( sku : "2392213", manufacturerId : 212) {
+        value
+        sku
+        url_key
+    }
+}

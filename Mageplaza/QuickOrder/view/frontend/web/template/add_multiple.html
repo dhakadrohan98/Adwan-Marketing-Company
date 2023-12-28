@@ -1,0 +1,62 @@
+<!--
+/**
+* Mageplaza
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Mageplaza.com license that is
+* available through the world-wide-web at this URL:
+* https://www.mageplaza.com/LICENSE.txt
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this extension to newer
+* version in the future.
+*
+* @category    Mageplaza
+* @package     Mageplaza_QuickOrder
+* @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+* @license     https://www.mageplaza.com/LICENSE.txt
+*/
+-->
+<div class="add-multiple-content">
+    <div class="addmultiple-action">
+        <div class="add-multiple">
+            <p id="add-skus" data-bind="i18n: 'Enter multiple SKUs'"></p>
+            <textarea id="addmultipleskus"
+                      data-bind="attr: {placeholder: $t('Enter multiple SKUs, separate by new lines')}"></textarea>
+            <p data-bind="i18n: 'Format: SKU,qty,option1,option2'"></p>
+            <p data-bind="i18n: 'E.g bundle product: 24-WG080'"></p>
+            <p data-bind="i18n: 'E.g simple product: 24-MB01,9'"></p>
+            <p data-bind="i18n: 'E.g configuration product: MH02,9,size:M,color:Red'"></p>
+            <p data-bind="i18n: 'E.g grouped product: 24-WG085_Group'"></p>
+            <p id="bulkadd-message"
+               data-bind="i18n: 'The box is empty, including existed items or items cannot be added to the list. Please try it again'"></p>
+            <p id="bulkadd-complete"
+               data-bind="i18n: 'Your items have been checked and added to the list successfully'"></p>
+            <div class="addlist-box"><span><button id="add-to-list"
+                                                   data-bind="click: bulkAddItemToList, text: $t('Add To List')"></button></span>
+            </div>
+        </div>
+        <div class="add-via-file">
+            <p id="add-files" data-bind="i18n: 'Add from file'"></p>
+            <input type="file" name="qoduploadcsv" id="qodupcsv"
+                   accept=".xml, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"><br>
+            <button id="upcsvfile" class="upcsvfile" afterRender="getValueInputCsvFile()"
+                    data-bind="click: addCsvItemToList"><span data-bind="i18n: 'Upload Now'"></span></button>
+            <p id="downloadcsvfile" class="qod-download-file"><a
+                    data-bind="attr: { 'href': window.qodConfig.downloadCsv}, text: $t('Download a sample CSV file')"></a>
+            </p>
+            <p id="downloadxmlfile" class="qod-download-file"><a
+                    data-bind="attr: { 'href': window.qodConfig.downloadXml}, text: $t('Download a sample XML file')"></a>
+            </p>
+            <p id="file-message"
+               data-bind="i18n: 'There is no file chosen, including existed items or items cannot be uploaded to the list. Please try it again'"></p>
+            <p id="addcsv-complete"
+               data-bind="i18n: 'Your items have been checked and added to the list successfully'"></p>
+        </div>
+    </div>
+    <div class="addmultiple-addlist">
+        <span><button id="clear-list" data-bind="click: clearAllItems, text: $t('Clear All List')"></button></span>
+    </div>
+</div>
