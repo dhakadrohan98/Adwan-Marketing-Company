@@ -1,0 +1,28 @@
+query  {
+  topManufacturers {   
+      items{
+    id
+    name
+    url_key
+    logo
+      }   
+  }
+}
+
+query  {
+  brandInfo(id: 1) {   
+      items{
+    id
+    name
+    logo
+    description
+      productdetail{
+          id
+          name
+          sku
+          image
+          price
+      }  
+      }
+  }
+}

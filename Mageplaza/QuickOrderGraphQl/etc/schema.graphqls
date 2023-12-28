@@ -1,0 +1,102 @@
+# Mageplaza
+#
+# NOTICE OF LICENSE
+#
+# This source file is subject to the Mageplaza.com license that is
+# available through the world-wide-web at this URL:
+# https://www.mageplaza.com/LICENSE.txt
+#
+# DISCLAIMER
+#
+# Do not edit or add to this file if you wish to upgrade this extension to newer
+# version in the future.
+#
+# @category    Mageplaza
+# @package     Mageplaza_QuickOrderGraphQl
+# @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+# @license     https://www.mageplaza.com/LICENSE.txt
+
+type Query {
+    mpQuickOrder: [mpQuickOrderOutput] @resolver(class: "\\Mageplaza\\QuickOrderGraphQl\\Model\\Resolver\\ItemsList") @doc(description: "Query to get list of items in Quick Order.")
+    mpQuickOrderConfigs: ConfigOutput @resolver(class: "\\Mageplaza\\QuickOrderGraphQl\\Model\\Resolver\\Configs") @doc(description: "Query to get config of Quick Order.")
+}
+
+type Mutation {
+    mpQuickOrderSKUs (
+        sku: [String]! @doc(description: "Data input")
+    ): [mpQuickOrderOutput] @resolver(class: "Mageplaza\\QuickOrderGraphQl\\Model\\Resolver\\AddBySku") @doc(description: "Add item to list by SKU")
+    mpQuickOrderClearAll: Boolean @resolver(class: "Mageplaza\\QuickOrderGraphQl\\Model\\Resolver\\ClearAll") @doc(description: "Clear all the items in the list")
+    mpQuickOrderItemsDelete (
+        id: String! @doc(description: "Data input")
+    ): Boolean @resolver(class: "Mageplaza\\QuickOrderGraphQl\\Model\\Resolver\\DeleteById") @doc(description: "Delete item in the list by ID")
+    mpQuickOrderItemsUpdate (
+        items: [ItemUpdateInput]! @doc(description: "Data input")
+    ): [mpQuickOrderOutput] @resolver(class: "Mageplaza\\QuickOrderGraphQl\\Model\\Resolver\\Update") @doc(description: "Update items")
+    mpQuickOrderAddToCart: AddToCartOutput @resolver(class: "Mageplaza\\QuickOrderGraphQl\\Model\\Resolver\\AddToCart") @doc(description: "Add list quick order items to cart")
+}
+
+type mpQuickOrderOutput {
+    item_id: String @doc(description: "Item ID"),
+    product_id: String @doc(description: "Product ID"),
+    name: String @doc(description: "Name"),
+    sku: String @doc(description: "SKU"),
+    sku_child: String @doc(description: "Child SKU"),
+    qty: String @doc(description: "Quantity"),
+    qtystock: Int @doc(description: "Stock quantity"),
+    qty_salable: Int @doc(description: "Saleable quantity"),
+    price: Int @doc(description: "Price"),
+    imageUrl: String @doc(description: "Image URL"),
+    type_id: String @doc(description: "Type ID"),
+    product_url: String @doc(description: "Product URL"),
+    customOptionValue: String @doc(description: "Custom option value"),
+    options: String @doc(description: "Options"),
+    optionIds: String @doc(description: "Options IDs"),
+    options_select_value: String @doc(description: "Options select value"),
+    options_select_value_id: String @doc(description: "Options select value ID"),
+    super_attribute: String @doc(description: "Super attribute"),
+    outofstock: String @doc(description: "Out of stock"),
+    customOptions: String @doc(description: "Custom Options"),
+    childProduct: String @doc(description: "Child product"),
+    bundleOption: String @doc(description: "Bundle option"),
+    bundleProduct: String @doc(description: "Bundle product"),
+    bundleSelectOption: String @doc(description: "Bundle select option"),
+    customerGroup: Int @doc(description: "Customer Group"),
+    tier_price: String @doc(description: "Tier price")
+}
+
+input ItemUpdateInput {
+    item_id: String @doc(description: "The Item ID")
+    value: String @doc(description: "The new value of item")
+}
+
+type AddToCartOutput {
+    quote_id: String @doc(description: "The quote id")
+}
+
+type ConfigOutput {
+    general: GeneralOutput @doc(description: "The General config output")
+    search: SearchOutput @doc(description: "The Search config output")
+    design: DesignOutput @doc(description: "The Design config output")
+}
+
+type GeneralOutput {
+    enabled: Boolean @doc(description: "Enabled")
+    route_name: String @doc(description: "Route Name")
+    page_title: String @doc(description: "Page Title")
+    allow_customer_group: String @doc(description: "Allow Customer Group")
+    show_quickorder_button: String @doc(description: "Quick Order label")
+    quickorder_label: String @doc(description: "Show Quick Order Link")
+}
+
+type SearchOutput {
+    minimum_character: String @doc(description: "Auto search minimum character")
+    limit_search_results: String @doc(description: "Limit search results")
+    display_product_image: Boolean @doc(description: "Display product image")
+}
+
+type DesignOutput {
+    heading_background_color: String @doc(description: "Heading Background Color")
+    heading_text_color: String @doc(description: "Heading Text Color")
+    heading_background_button: String @doc(description: "Heading Background Button")
+}
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * @category  Sigma
+ * @package   Sigma_StoreConfigGraphQl
+ * @author    SigmaInfo Team
+ * @copyright 2021 Sigma (https://www.sigmainfo.net/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+        <arguments>
+            <argument name="extendedConfigData">
+                <item name="whatsapp_general_enable" xsi:type="string">global_config/whatsapp_config/enable</item>
+                <item name="whatsapp_general_number" xsi:type="string">global_config/whatsapp_config/whatsapp_number</item>
+                <item name="whatsapp_general_message" xsi:type="string">global_config/whatsapp_config/message</item>
+                <item name="live_chat_general_enable" xsi:type="string">global_config/live_chat/enable</item>
+                <item name="live_chat_general_widget_script" xsi:type="string">global_config/live_chat/widget_script</item>
+                <item name="web_cookie_cookie_lifetime" xsi:type="string">web/cookie/cookie_lifetime</item>
+                <item name="persistent_options_lifetime" xsi:type="string">persistent/options/lifetime</item>
+                <item name="product_details_banner_image" xsi:type="string">global_config/product_details_banner/banner_image</item>
+                <item name="product_details_banner_image_ar" xsi:type="string">global_config/product_details_banner/banner_image_ar</item>
+                <item name="product_details_banner_url_key" xsi:type="string">global_config/product_details_banner/url_key</item>
+                <item name="zip_code_checker_general_enable" xsi:type="string">global_config/zip_code_checker/enable</item>
+                <item name="zip_code_checker_general_zipcodes" xsi:type="string">global_config/zip_code_checker/zipcodes</item>
+                <item name="sms_country_code_general_phone_code" xsi:type="string">global_config/sms_country_code/phone_code</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

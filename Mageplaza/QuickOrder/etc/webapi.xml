@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_QuickOrder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/mpQuickOrder/SKUs" method="POST">
+        <service class="Mageplaza\QuickOrder\Api\RequestsManagementInterface" method="addBySku"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/mpQuickOrder/file" method="POST">
+        <service class="Mageplaza\QuickOrder\Api\RequestsManagementInterface" method="addByFile"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/mpQuickOrder/list" method="GET">
+        <service class="Mageplaza\QuickOrder\Api\RequestsManagementInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/mpQuickOrder/clear" method="DELETE">
+        <service class="Mageplaza\QuickOrder\Api\RequestsManagementInterface" method="clear"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/mpQuickOrder/delete/:id" method="DELETE">
+        <service class="Mageplaza\QuickOrder\Api\RequestsManagementInterface" method="delete"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/mpQuickOrder/add-to-cart" method="POST">
+        <service class="Mageplaza\QuickOrder\Api\RequestsManagementInterface" method="addToCart"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/mpQuickOrder/items" method="POST">
+        <service class="Mageplaza\QuickOrder\Api\RequestsManagementInterface" method="update"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/mpQuickOrder/configs" method="GET">
+        <service class="Mageplaza\QuickOrder\Api\RequestsManagementInterface" method="getConfigs"/>
+        <resources>
+            <resource ref="Mageplaza_QuickOrder::configuration"/>
+        </resources>
+    </route>
+</routes>

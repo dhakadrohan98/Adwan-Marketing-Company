@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">   
+    <update handle="customer_account"/>
+    <head>
+        <title>Edit Card</title>
+        <css src="Magedelight_Payfort::css/payfort.css"/>
+    </head>
+    <body> 
+        <referenceBlock name="customer-account-navigation-my-credit-cards-link">
+            <arguments>
+                <argument name="is_highlighted" xsi:type="boolean">true</argument>
+            </arguments>
+        </referenceBlock>               
+        <referenceContainer name="content">
+            <block class="Magedelight\Payfort\Block\Customer\Edit" name="md-card-edit" template="Magedelight_Payfort::edit.phtml" />
+        </referenceContainer>
+    </body>
+</page>

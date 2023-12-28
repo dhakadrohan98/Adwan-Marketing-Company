@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/* Magedelight
+* Copyright (C) 2018 Magedelight <info@magedelight.com>
+*
+* NOTICE OF LICENSE
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see http://opensource.org/licenses/gpl-3.0.html.
+*
+* @category Magedelight
+* @package Magedelight_Payfort
+* @copyright Copyright (c) 2018 Mage Delight (http://www.magedelight.com/)
+* @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+* @author Magedelight <info@magedelight.com>
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <md_payfort>
+                <active>0</active>
+                <cc_vault_active>0</cc_vault_active>
+                <title>Payfort By MageDelight</title>
+                <order_status>processing</order_status>
+                <can_use_checkout>1</can_use_checkout>
+                <can_authorize>1</can_authorize>
+                <can_capture>1</can_capture>
+                <can_capture_partial>1</can_capture_partial>
+                <can_authorize_vault>1</can_authorize_vault>
+                <can_capture_vault>1</can_capture_vault>
+                <can_use_internal>1</can_use_internal>
+                <can_refund_partial_per_invoice>1</can_refund_partial_per_invoice>
+                <can_refund>1</can_refund>
+                <can_void>1</can_void>
+                <can_cancel>1</can_cancel>
+                <can_edit>1</can_edit>
+                <can_review_payment>1</can_review_payment>
+                <can_accept_payment>1</can_accept_payment>
+                <can_deny_payment>1</can_deny_payment>
+                <ccfields>card_security_code,expiry_date,card_number</ccfields>
+                <cc_year_length>2</cc_year_length>
+                <test>1</test>
+                <debug>1</debug>
+                <cctypes>AE,VI,MC,DI,MADA,MEEZA</cctypes>
+                <model>PayfortFacade</model>
+                <is_gateway>1</is_gateway>
+                <useccv>1</useccv>
+                <allowspecific>0</allowspecific>
+                <cgi_url_test_mode>https://sbcheckout.PayFort.com/FortAPI/paymentPage</cgi_url_test_mode>
+                <cgi_url>https://checkout.PayFort.com/FortAPI/paymentPage</cgi_url>
+                <transaction_url_test_mode>https://sbpaymentservices.payfort.com/FortAPI/paymentApi</transaction_url_test_mode>
+                <transaction_url>https://paymentservices.payfort.com/FortAPI/paymentApi</transaction_url>
+                <place_order_url>payfort/MerchantPage/TokenRequest</place_order_url>
+                <privateInfoKeys>token_name,merchant_identifier,access_code</privateInfoKeys>
+                <paymentInfoKeys>customer_ip,merchant_reference,authorization_code,payment_option,card_number,amount</paymentInfoKeys>
+                <debugReplaceKeys>merchant_identifier,access_code,accountNumber,expirationMonth,expirationYear,cvNumber,token_name</debugReplaceKeys>
+            </md_payfort>
+             <md_payfort_cc_vault>
+                <model>PayfortCreditCardVaultFacade</model>
+                <title>Stored Cards (Payfort)</title>
+            </md_payfort_cc_vault>
+        </payment>
+    </default>
+</config>

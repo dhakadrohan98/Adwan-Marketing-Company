@@ -1,0 +1,17 @@
+
+type Query {
+    TopCategory: TopCategoryOutput 
+    @resolver(class: "Sigma\\TopCategoryGraphQl\\Model\\Resolver\\TopCategory") 
+    @doc(description: "TopCategory Collection")
+}
+
+type TopCategoryOutput {
+    items: [TopCategory!]! @doc(description: "An array of TopCategory Collection.")    
+}
+type TopCategory {
+    id: Int
+    name: String
+    url_key: String
+    thumbnail_image: String
+    description: String
+}

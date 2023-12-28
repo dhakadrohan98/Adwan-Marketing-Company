@@ -1,0 +1,20 @@
+type Query {
+    sliders( storeName: String! @doc(description: "Specify the store_name of the store.")
+    ): BannersOutput@resolver(class: "Sigma\\BannerSliderGraphQl\\Model\\Resolver\\BannerSliderResolver")  
+    @doc(description: "Banners collection Data.")
+}
+
+type BannersOutput {
+    items: [Banners!]! @doc(description: "An array of banners.")    
+}
+type Banners {
+    banner_id: Int
+    status: Boolean
+    name: String
+    content: String
+    image: String
+    title: String
+    url_banner: String
+    newtab: Int
+}
+

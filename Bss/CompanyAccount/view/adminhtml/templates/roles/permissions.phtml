@@ -1,0 +1,109 @@
+<?php
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_CompanyAccount
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2020 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+/** @var $block \Bss\CompanyAccount\Block\Adminhtml\Edit\Role\Permission */
+?>
+<div class="admin__field-label">
+    <label>
+        <span><?= $block->escapeHtml(__('Permissions')) ?></span>
+    </label>
+</div>
+<div class="admin__field-control tree x-tree" data-role="resource-tree">
+</div>
+<input type="hidden" data-form-part="bss_companyaccount_customer_listroles_form" name="role_type" value="" id="role_type">
+<script>
+    var checkedRules = <?= $block->getSerializer()->serialize($block->getSelectedRules()) ?>;
+    require([
+        'jquery',
+        'jquery/ui',
+        'jquery/jstree/jquery.jstree'
+    ], function($) {
+        'use strict';
+        let rulesTree = $('.x-tree');
+
+        rulesTree.jstree({
+            plugins: ['themes', 'json_data', 'ui', 'crrm', 'types', 'vcheckbox'],
+
+            vcheckbox: {
+                'two_state': true,
+                'real_checkboxes': true,
+
+                /**
+                 * @param {*} n
+                 * @return {Array}
+                 */
+                'real_checkboxes_names': function (n) {
+                    return ['rule[]', $(n).data('id')];
+                }
+            },
+            ui: {
+                'select_limit': 0
+            },
+            'json_data': {
+                data: <?= $block->getSerializer()->serialize($block->getDataRules()) ?>
+            },
+            types: {
+                'types': {
+                    'disabled': {
+                        'check_node': false,
+                        'uncheck_node': false
+                    }
+                }
+            }
+        });
+        rulesTree.on('loaded.jstree', $.proxy(_checkNodes, this));
+        rulesTree.on('click.jstree', 'a', $.proxy(_checkNode, this));
+        rulesTree.on("check_node.jstree uncheck_node.jstree", function() {
+            processRulesData();
+        });
+
+        function _checkNode(event) {
+            event.stopPropagation();
+            rulesTree.jstree(
+                'change_state',
+                event.currentTarget,
+                rulesTree.jstree('is_checked', event.currentTarget)
+            ).trigger('check_node.jstree');
+        }
+
+        function processRulesData() {
+            checkedRules = [];
+            rulesTree.jstree('get_checked',null,true).each(function(){
+                let ruleId = $(this).attr('data-id');
+                if (ruleId != "0") { checkedRules.push(ruleId); }
+            });
+            document.getElementById('role_type').value = checkedRules.join(",");
+        }
+
+        function _checkNodes() {
+            checkedRules = arrayRemove(checkedRules, "");
+            let defaultCheck = '';
+            if (checkedRules.length > 0) {
+                defaultCheck = '[data-id="0"],';
+            }
+            var $items = $(defaultCheck + '[data-id="' + checkedRules.join('"],[data-id="') + '"]');
+
+            $items.removeClass('jstree-unchecked').addClass('jstree-checked');
+            $items.children(':checkbox').prop('checked', true);
+            processRulesData();
+        }
+
+        function arrayRemove(arr, value) { return arr.filter(function(ele){ return ele != value; });}
+    });
+
+</script>
+

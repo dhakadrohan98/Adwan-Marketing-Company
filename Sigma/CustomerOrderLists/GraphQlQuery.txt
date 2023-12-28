@@ -1,0 +1,87 @@
+Get Customers Orders
+{
+  customer {
+      orders(filter: {status:{eq: "complete"}}){
+          items{
+              order_number
+              increment_id
+              order_date
+              grand_total
+            status
+          }
+      }
+
+  }
+}
+Get Particular order details
+{
+  customer {
+      orders(filter: {number:{eq: "000000057"}}){
+          items{
+              order_number
+              increment_id
+              order_date
+              grand_total
+            status
+            shipping_address{
+                firstname
+                lastname
+                region
+                country_code
+                street
+                telephone
+                city
+                postcode
+            }
+            items{
+                id
+                product_name
+                product_sku
+                product_url_key
+                product_type
+                status
+                quantity_ordered
+                quantity_shipped
+            }
+          }
+      }
+    
+  }
+}
+
+query Orders($equal: String){
+  customer {
+      orders(filter: {number:{eq: $equal}}){
+          items{
+              order_number
+              increment_id
+              order_date
+              grand_total
+            status
+            shipping_address{
+                firstname
+                lastname
+                region
+                country_code
+                street
+                telephone
+                city
+                postcode
+            }
+            items{
+                id
+                product_name
+                product_sku
+                product_url_key
+                product_type
+                status
+                quantity_ordered
+                quantity_shipped
+            }
+          }
+      }
+    
+  }
+}
+Pass it in customer variables
+{"equal":"000000057"}

@@ -1,0 +1,18 @@
+{
+    storeConfig {
+        whatsapp_general_enable
+        whatsapp_general_number
+        whatsapp_general_message
+        live_chat_general_enable
+        live_chat_general_widget_script
+        web_cookie_cookie_lifetime
+        persistent_options_lifetime
+        product_details_banner_image
+        product_details_banner_image_ar
+        product_details_banner_url_key
+        base_media_url
+        zip_code_checker_general_enable
+        zip_code_checker_general_zipcodes
+        sms_country_code_general_phone_code
+    }
+}

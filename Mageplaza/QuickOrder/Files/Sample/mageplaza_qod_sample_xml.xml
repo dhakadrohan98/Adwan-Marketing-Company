@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<items>
+    <item>
+        <sku>MH01</sku>
+        <qty>1</qty>
+        <option1>size:M</option1>
+        <option2>color:Gray</option2>
+    </item>
+    <item>
+        <sku>24-WG080</sku>
+    </item>
+    <item>
+        <sku>24-WG085_Group</sku>
+    </item>
+</items>

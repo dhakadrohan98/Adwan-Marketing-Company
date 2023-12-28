@@ -1,0 +1,56 @@
+<?php
+$ccNumberView = $block->escapeHtml($block->getNumberLast4Digits());
+$blockObj= $block->getLayout()->createBlock('Magedelight\Payfort\Block\Customer\Addcard');
+$method_code = "md_payfort";
+?>
+<tr>
+    <td data-th="<?php echo $block->escapeHtml(__('Card Number')) ?>" class="col card-number">
+        <span><?php echo $block->escapeHtml(__('ending')); ?></span> <?php /* @noEscape */  echo $ccNumberView ?>
+    </td>
+    <td data-th="<?php echo $block->escapeHtml(__('Expiration Date')) ?>" class="col card-expire">
+        <?php echo $block->escapeHtml($block->getExpDate()); ?>
+    </td>
+    <td data-th="<?php echo $block->escapeHtml(__('Type')) ?>" class="col card-type">
+        <img src="<?php /* @noEscape */ echo $block->getIconUrl(); ?>"
+             width="<?php /* @noEscape */ echo $block->getIconWidth(); ?>"
+             height="<?php /* @noEscape */ echo $block->getIconHeight(); ?>"
+        >
+    </td>
+    <td data-th="<?php echo $block->escapeHtml(__('Actions')) ?>" class="col actions">
+        <?php if ($block->getMethodCode() != "" && $block->getMethodCode() == $method_code) { ?>
+            <form class="form" method="post" name="form_edit_<?php echo $block->getToken()->getPublicHash(); ?>" action="<?php echo $blockObj->getPostUrl(); ?>">
+                <?php echo $block->getBlockHtml('formkey')?>
+                <input name="<?php /* @noEscape */ echo \Magento\Vault\Api\Data\PaymentTokenInterface::PUBLIC_HASH?>"
+                value="<?php /* @noEscape */ echo $block->getToken()->getPublicHash()?>"
+                type="hidden"/>
+                <button class="action primary edit" name="profile_edit" value="edit" type="submit"><span><span><?php echo __("Edit") ?></span></span></button>
+            </form> 
+        <?php } ?>
+        <form
+            class="form"
+            action="<?php echo $block->escapeUrl($block->getUrl('vault/cards/deleteaction')); ?>"
+            method="post"
+            >
+            <?php echo $block->getBlockHtml('formkey')?>
+            <input
+                name="<?php /* @noEscape */ echo \Magento\Vault\Api\Data\PaymentTokenInterface::PUBLIC_HASH?>"
+                value="<?php /* @noEscape */ echo $block->getToken()->getPublicHash()?>"
+                type="hidden"/>
+            <button type="submit"
+                    class="action delete"
+                    data-mage-init='{
+                                    "Magento_Vault/js/customer_account/deleteWidget":{
+                                        "type": "popup",
+                                        "modalClass": "my-credit-cards-popup",
+                                        "toggleEvent": "click",
+                                        "title": "<?php echo $block->escapeHtml(__('Delete')) ?>",
+                                        "content": "Are you sure you want to delete this card: <?php
+                                            /* @noEscape */ echo $ccNumberView
+                                        ?>?"
+                                    }
+                                }'>
+                <span><?php echo $block->escapeHtml(__('Delete')) ?></span>
+            </button>
+        </form>
+    </td>
+</tr>
