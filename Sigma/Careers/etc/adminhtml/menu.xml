@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
-    <menu>
-        <add id="Sigma_Careers::parent" title="Careers" module="Sigma_Careers" sortOrder="50" resource="Sigma_Careers::parent"/>
-        <add id="Sigma_Careers::careers" title="Manage Career CV" module="Sigma_Careers" sortOrder="1000" parent="Sigma_Careers::parent" resource="Sigma_Careers::careers" action="careers/index"/>
-    </menu>
-</config>

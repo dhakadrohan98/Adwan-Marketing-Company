@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
-    <preference for="Magento\Checkout\Model\GuestPaymentInformationManagement" type="Sigma\NoonPaymentsGraphQl\Model\GuestPaymentInformationManagement" />
-    <preference for="Magento\Checkout\Model\PaymentInformationManagement" type="Sigma\NoonPaymentsGraphQl\Model\PaymentInformationManagement" />
-</config>

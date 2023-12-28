@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
-    <template id="service_new_request_email_template" label="New Service Request Email Template" file="newservicerequest.html" type="html" module="Sigma_ServiceModel" area="frontend"/>
-    <template id="acknowledge_from_admin_email_template" label="Acknowledgement From Admin Email Template" file="acknowledgefromadmin.html" type="html" module="Sigma_ServiceModel" area="frontend"/>
-    <template id="admin_reply_request_email_template" label="Admin Reply on Service Request Email Template" file="replyfromadmin.html" type="html" module="Sigma_ServiceModel" area="frontend"/>
-</config>

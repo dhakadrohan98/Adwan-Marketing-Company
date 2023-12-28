@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
-    <template id="careers_email_template" label="Career CV Email Template" file="newcareercv.html" type="html" module="Sigma_Careers" area="frontend"/>
-    <template id="acknowledge_email_template" label="Acknowledgement CV Email Template" file="acknowledgement.html" type="html" module="Sigma_Careers" area="frontend"/>
-</config>

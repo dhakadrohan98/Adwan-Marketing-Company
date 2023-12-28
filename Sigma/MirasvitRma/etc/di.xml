@@ -1,6 +1,0 @@
-<?xml version="1.0" ?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-	<preference for="Mirasvit\RmaGraphQl\Service\RmaService" type="Sigma\MirasvitRma\Rewrite\Mirasvit\RmaGraphQl\Service\RmaService"/>
-
-	<preference for="Mirasvit\RmaGraphQl\Model\Resolver\Rmas" type="Sigma\MirasvitRma\Rewrite\Mirasvit\RmaGraphQl\Model\Resolver\Rmas"/>
-</config>
