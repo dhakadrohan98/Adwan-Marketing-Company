@@ -1,0 +1,13 @@
+query  {
+  getProductMediaGallery(id: 4) {   
+      items{
+            name
+            short_description
+            manufacturer_logo
+            media_gallery{
+                image
+                label
+            }  
+      }
+  }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Webkul Software.
+ *
+ * @category  Webkul
+ * @package   Webkul_SmsaShipping
+ * @author    Webkul
+ * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
+ * @license   https://store.webkul.com/license.html
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+  <default>
+    <carriers>
+      <smsa>
+        <active>1</active>
+        <sallowspecific/>
+        <model>Webkul\SmsaShipping\Model\SmsaShipping\Carrier</model>
+        <price_for_fifteen_kg>10.00</price_for_fifteen_kg>
+        <price_for_additional_kg>5.00</price_for_additional_kg>
+        <title>SMSA Shipping</title>
+        <name>SMSA Shipping</name>
+        <specificerrmsg>Not able to load shipping cost.</specificerrmsg>
+      </smsa>
+    </carriers>
+  </default>
+</config>

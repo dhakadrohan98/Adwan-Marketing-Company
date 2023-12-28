@@ -1,0 +1,36 @@
+{
+  salesOrder (id: 3, emailid: "prashant.k@mailinator.com") {
+      increment_id
+      customer_name
+      
+      grand_total
+      is_guest_customer
+      created_at
+      shipping_method
+      shipping {
+        name
+        street
+        city
+        region
+        country
+        postcode
+        telephone
+        company
+      }
+      billing {
+        name
+        street
+        city
+        region
+        country
+        postcode
+        telephone
+        company
+      }
+      items {
+        title
+        sku
+        price
+      }
+  }
+}

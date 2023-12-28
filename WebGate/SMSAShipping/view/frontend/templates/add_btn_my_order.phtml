@@ -1,0 +1,102 @@
+<?php
+    /**
+     * @var $this AddBtnMyOrder
+     */
+    
+    use WebGate\SMSAShipping\Block\Frontend\AddBtnMyOrder;
+
+?>
+
+<?php if($this->isAwbMethod()){ ?>
+
+  <br><br><br>
+  <div class="block block-order-details-view">
+    <div class="block-title">
+      <strong><?= __('Awb Method') ?></strong>
+    </div>
+    <div class="block-content">
+
+      <div><b>Status </b><span><?= $this->getAwdStatus() ?></span></div>
+
+      <div><b>Number </b><span><?= $this->getAwdNumber() ?></span></div>
+
+      <br><br>
+        
+        <?php
+            $tracking = $this->getTracking();
+            if(!empty($tracking))
+            {
+                ?>
+              <strong class="box-title"><span><?= __('Tracking') ?></span></strong>
+                <?php foreach($tracking as $key => $value){ ?>
+              <div><b><?= $key ?> : </b><span><?= $value ?></span></div>
+            <?php } ?>
+            <?php } ?>
+
+
+      <br>
+      <a href='<?= $this->getUrl('webgate_smsashipping/awb/status' , [
+          'order_id' => $this->getOrderId() ,
+      ]) ?>' class="button">
+        <span><?= __('update status') ?></span>
+      </a>
+
+      <a href='<?= $this->getUrl('webgate_smsashipping/awb/tracking' , [
+          'order_id' => $this->getOrderId() ,
+      ]) ?>' class="button">
+        <span><?= __('get Tracking') ?></span>
+      </a>
+
+      <a target='_blank' href='<?= $this->getUrl('webgate_smsashipping/awb/Pdf' , [
+          'order_id' => $this->getOrderId() ,
+      ]) ?>' class="button">
+        <span><?= __('Print') ?></span>
+      </a>
+
+
+      <a target='_blank' href='<?= $this->getUrl('webgate_smsashipping/awb/ShowPdf' , [
+          'order_id' => $this->getOrderId() ,
+      ]) ?>' class="button">
+        <span><?= __('Show Print Pdf') ?></span>
+      </a>
+
+    </div>
+  </div>
+
+  <style>
+    .button {
+      background-image: none;
+      background: #eeeeee;
+      border: 1px solid #cccccc;
+      color: #333333;
+      cursor: pointer;
+      display: inline-block;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      margin: 0;
+      padding: 7px 15px;
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+      box-sizing: border-box;
+      vertical-align: middle;
+    }
+
+    .button:focus,
+    .button:active {
+      background: #e2e2e2;
+      border: 1px solid #cccccc;
+      color: #333333;
+    }
+
+    .button:hover {
+      background: #e1e1e1;
+      border: 1px solid #cccccc;
+      color: #333333;
+    }
+
+    .button::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+    }
+  </style>
+<?php } ?>

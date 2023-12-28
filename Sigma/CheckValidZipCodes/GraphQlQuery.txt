@@ -1,0 +1,14 @@
+query CheckZipCode($zipcode: String!) {
+  CheckValidZipCode (zipcode: $zipcode) 
+    {
+       message
+       status
+    }
+}
+
+
+#Variable
+
+{
+    "zipcode" : "12212"
+}

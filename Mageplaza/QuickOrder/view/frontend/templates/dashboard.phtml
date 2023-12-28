@@ -1,0 +1,130 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_QuickOrder
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+// @codingStandardsIgnoreFile
+use Mageplaza\CallForPrice\Helper\Rule;
+
+$quickOrderConfig = $block->getQuickOrderConfig();
+try {
+    $cfpEnabled = $this->helper(Rule::class)->isEnabled();
+} catch (Exception $e) {
+    $cfpEnabled = 0;
+}
+
+?>
+<div class="quickod-wrapper quickod-main-page">
+    <div class="main-content">
+        <!--quick order header area-->
+        <div class="quickod-header">
+            <div class="title-button">
+                <span id="qod-page-title"><?= $block->getQuickOrderLabel() ?></span>
+                <span id="button-addcart-checkout">
+                    <span><button id="top-add-cart"><?= __('Add to cart') ?></button></span>
+                    <span><button id="top-checkout"><?= __('Checkout') ?></button></span>
+                </span>
+            </div>
+            <div class="instantsearch">
+                <div id="instantsearch-area">
+                    <input type="text" id="quickod-instansearch" class="quickod-search-product"
+                           placeholder="Instant Search"/>
+                </div>
+            </div>
+        </div>
+        <!--product list area-->
+        <div class="quickod-productlist">
+            <div class="headlist-title">
+                <span id="title-product"><?= __('Item(s)') ?></span>
+                <span id="title-sku"><?= __('SKU(s)') ?></span>
+                <span id="title-qty"><?= __('Qty') ?></span>
+                <span id="title-subtotal"><?= __('Subtotal') ?></span>
+                <span id="title-action"><?= __('Action') ?></span>
+            </div>
+            <div class="product-list" data-bind="scope: 'qod_item'">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <script type="text/x-magento-init">
+                    {
+                        "*": {
+                            "Magento_Ui/js/core/app": {
+                                "components": {
+                                    "qod_item": {
+                                        "component": "Mageplaza_QuickOrder/js/view/qod_item"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+        <!--add multiple area-->
+        <div class="quickod-add-multiple" data-bind="scope: 'add_multiple'">
+            <div class="addmultiple-title">
+                <h2><?= __('Add Multiple Products') ?></h2>
+            </div>
+            <script>
+                window.mp_cfpEnabled = <?php /* @escapeNotVerified */ echo $cfpEnabled; ?>;
+            </script>
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <script type="text/x-magento-init">
+                    {
+                        "*": {
+                            "Magento_Ui/js/core/app": {
+                                "components": {
+                                    "add_multiple": {
+                                        "component": "Mageplaza_QuickOrder/js/view/add_multiple"
+                                    }
+                                }
+                            }
+                        }
+                    }
+            </script>
+        </div>
+    </div>
+</div>
+<?= $block->getChildHtml('mp.quickorder.searchtool') ?>
+<?= $block->getChildHtml('mp.quickorder.design') ?>
+
+<script type="text/javascript">
+    //<![CDATA[
+    require([
+        'jquery',
+        'Mageplaza_QuickOrder/js/model/qod_item',
+        'Magento_Customer/js/customer-data'
+    ], function ($, qodItem, customerData) {
+        "use strict";
+
+        window.qodConfig = JSON.parse('<?= $quickOrderConfig ?>');
+
+        $(function () {
+            $("#top-add-cart").click(function () {
+                var sections = ['cart'];
+                qodItem.addCartAction();
+                customerData.invalidate(sections);
+            });
+
+            $("#top-checkout").on("click", function () {
+                var sections = ['cart'];
+                qodItem.checkoutProcessAction();
+                customerData.invalidate(sections);
+            });
+        });
+    });
+    //]]>
+</script>

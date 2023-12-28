@@ -1,0 +1,25 @@
+query  {
+  RecentlyViewedProducts (customerId: 1) {
+      items{
+        id
+        sku
+        price
+        name
+        url_key
+        thumbnail_image
+      }   
+  }
+}
+
+
+
+ mutation {
+   AddRecentlyViewed(
+     input:{
+        customer_id: 5
+        product_id: 37
+     }
+   ){
+       success_message
+   }
+ }

@@ -1,0 +1,10 @@
+query  {
+  TopCategory {   
+      items{
+        id
+        name
+        thumbnail_image
+        description
+      }   
+  }
+}

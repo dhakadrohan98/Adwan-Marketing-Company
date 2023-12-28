@@ -1,0 +1,42 @@
+type StoreConfig {
+    payment_noonpg_status : String  @doc(description: "NoonPayments Status")
+    payment_noonpg_title : String  @doc(description: "NoonPayments Title")
+    payment_noonpg_sandbox : String  @doc(description: "NoonPayments Sandbox")
+    payment_noonpg_business_identifier : String  @doc(description: "NoonPayments Buisness Identifier")
+    payment_noonpg_app_identifier : String  @doc(description: "NoonPayments App Identifier")
+    payment_noonpg_authkey : String  @doc(description: "NoonPayments Auth Key")
+    payment_noonpg_payment_action : String  @doc(description: "NoonPayments Payment Action")
+    payment_noonpg_operating_mode : String  @doc(description: "NoonPayments Operating Mode")
+    payment_noonpg_gateway_url : String  @doc(description: "NoonPayments GatewayURL")
+    payment_noonpg_order_route : String  @doc(description: "NoonPayments Order Route")
+    payment_noonpg_language : String  @doc(description: "NoonPayments Language")
+    payment_noonpg_style_profile : String  @doc(description: "NoonPayments Style Profile")
+}
+type Query
+    {
+        NoonPaymentsGraphqlCreate (
+        cartMaskId: String!
+        email:String!
+        customerIsGuest: String!
+        selectedPaymentMethod:String!
+        ): NoonPaymentsGraphqlCreateOutput @resolver(class: "Sigma\\NoonPaymentsGraphQl\\Model\\Resolver\\NoonPaymentsGraphqlCreate") @doc(description:"Noon Payment Graphql module for returning redirect url")
+
+        NoonPaymentsGrapqhlConfim(
+            orderId:String!
+            paymentType:String!
+            merchantReference:String!
+            selectedPaymentMethod:String!
+        ): NoonPaymentsGrapqhlConfimOutput @resolver(class:"Sigma\\NoonPaymentsGraphQl\\Model\\Resolver\\NoonPaymentsGrapqhlConfim") @doc(description:"Noon Payment Graphql for confirming the order")
+    }
+type NoonPaymentsGraphqlCreateOutput
+{
+    result : String  @doc(description: "Is request success or not"),
+    redirect_url : String  @doc(description: "NoonPG Redirect Url")
+    error : String  @doc(description: "NoonPg Error")
+}
+type NoonPaymentsGrapqhlConfimOutput
+{
+    result: String  @doc(description: "Is request success or not")
+    order_id:String @doc(description: "Magento Order ID")
+}
+

@@ -1,0 +1,41 @@
+{
+    storeConfig {
+        payment_noonpg_status
+        payment_noonpg_title
+        payment_noonpg_sandbox
+        payment_noonpg_business_identifier
+        payment_noonpg_app_identifier
+        payment_noonpg_authkey
+        payment_noonpg_payment_action
+        payment_noonpg_operating_mode
+        payment_noonpg_gateway_url
+        payment_noonpg_order_route
+        payment_noonpg_language
+        payment_noonpg_style_profile
+    }
+}
+query{
+NoonPaymentsGrapqhlConfim(
+        selectedPaymentMethod:"noonpg"
+        orderId:"349363081217"
+        merchantReference:"000000133"
+        paymentType:"Card"
+    )
+    {
+        result
+        order_id
+    }
+}
+query{
+NoonPaymentsGraphqlCreate(
+        cartMaskId:"wv6ddC3tUDmZT6glefXZDDnw5SosoVQO"
+        email:"test+123@gmail.com"
+        customerIsGuest:"1"
+        selectedPaymentMethod:"noonpg"
+    )
+    {
+        result
+        redirect_url
+        error
+    }
+}
