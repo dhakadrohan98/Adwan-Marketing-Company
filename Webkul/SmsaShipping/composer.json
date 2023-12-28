@@ -1,0 +1,18 @@
+{
+    "name": "webkul/module-smsashipping",
+    "description": "SMSA Shipping",
+    "require": {
+        "magento/module-shipping":"100.*.*"
+    },
+    "type": "magento2-module",
+    "version": "4.0.1",
+    "license": "proprietary",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Webkul\\SmsaShipping\\": ""
+        }
+    }
+}

@@ -1,0 +1,20 @@
+query Getfile(
+  $id: Int!
+  $storeid: Int!
+){
+  getfile(id: $id, storeid: $storeid) {   
+    items{
+        id
+        name
+        file_name
+        status
+      }
+  }
+}
+
+
+Query variable
+{
+    "id": 4,
+    "storeid": 1
+}

@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * Copyright © 2015 vendorcommerce. All rights reserved.
+ */
+?>
+
+<form class="form careers" action="<?= $block->getUrl('careers/careers/save') ?>" id="careers-form" method="post" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>" data-mage-init='{"validation":{}}' enctype='multipart/form-data'>
+    <fieldset class="fieldset">
+        <div class="field note">
+            <label class="label" for="note" style="font-size:bold;"><span><?= $block->escapeHtml(__('We look for people who can develop and implement creative solutions in the face of challenging goals and often differing opinions, personalities, and backgrounds. Skills in interacting with people in sometimes tough situations are critical to driving distinctive client impact.')) ?></span></label>
+        </div>
+        <div class="field note">
+            <label class="label" for="note" style="font-size:bold;"><span><?= $block->escapeHtml(__('Please attach your CV')) ?></span></label>
+        </div>
+        <div class="field name required">
+            <label class="label" for="name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+            <input type="text" name="name" id="name" title="<?= $block->escapeHtmlAttr(__('Name')) ?>" value="" data-validate="{required:true}" />
+        </div>
+        <div class="field email required">
+            <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+            <input type="text" name="email" id="email" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" value="" data-validate="{required:true}" />
+        </div>
+        <div class="field mobile required">
+            <label class="label" for="mobile"><span><?= $block->escapeHtml(__('Mobile')) ?></span></label>
+            <input type="text" name="mobile" id="mobile" title="<?= $block->escapeHtmlAttr(__('Mobile')) ?>" value="" data-validate="{required:true}" />
+        </div>
+        <div class="field specialization">
+            <label class="label" for="specialization"><span><?= $block->escapeHtml(__('Specialization')) ?></span></label>
+            <input type="text" name="specialization" id="specialization" title="<?= $block->escapeHtmlAttr(__('Specialization')) ?>" value="" />
+        </div>
+        <div class="field cv required">
+            <label class="label" for="document"><span><?= $block->escapeHtml(__('CV')) ?></span></label>
+            <input type="hidden" name="created_at" id="created_at" value="<?= $block->getCurrentDate() ?>" />
+            <input type="file" name="cv" id="cv" title="<?= $block->escapeHtmlAttr(__('CV')) ?>" value="" data-validate="{required:true}" />
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>

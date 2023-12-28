@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Sigma_ServiceModel::parent" title="Service Manager" module="Sigma_ServiceModel" sortOrder="50" resource="Sigma_ServiceModel::parent"/>
+        <add id="Sigma_ServiceModel::servicemodel" title="Manage Service Quote" module="Sigma_ServiceModel" sortOrder="1000" parent="Sigma_ServiceModel::parent" resource="Sigma_ServiceModel::servicemodel" action="servicemodel/index"/>
+    </menu>
+</config>

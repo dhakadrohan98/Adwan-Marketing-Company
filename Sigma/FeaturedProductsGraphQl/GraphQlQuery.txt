@@ -1,0 +1,13 @@
+query {
+    FeaturedProducts {
+        items{
+            id
+            name
+            image
+            sku
+            qty
+            price
+            special_price
+        }
+    }
+}
